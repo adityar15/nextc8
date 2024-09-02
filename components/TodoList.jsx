@@ -1,4 +1,8 @@
 import React from 'react'
+import TodoItem from './TodoItem'
+
+
+
 
 export default async function TodoList() {
 
@@ -11,14 +15,13 @@ export default async function TodoList() {
 
     const todos = await response.json()
 
+
     return (
         <div>
             <ul>
                 {
                     todos.map(todo => (
-                        <li key={todo.id}>
-                            {todo.title}
-                        </li>
+                        <TodoItem todo={todo} key={todo.id} />
                     ))
                 }
             </ul>
